@@ -1,0 +1,26 @@
+{
+	"name": "Arch devcontainer",
+	"runArgs": [
+		"--gpus",
+		"all",
+		"--device",
+		"/dev/dri",
+		"--volume",
+		"/tmp/.X11-unix:/tmp/.X11-unix:rw"
+	],
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": []
+		}
+	},
+	"containerEnv": {
+		"XDG_SESSION_TYPE": "wayland",
+		"DISPLAY": "${localEnv:DISPLAY}"
+	},
+	"postCreateCommand": "touch ~/.bashrc",
+	"remoteUser": "vscode"
+}
